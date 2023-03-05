@@ -14,9 +14,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -75,6 +73,8 @@ public class DeviceController {
             Logger.error("Opening csv datafile failed: \n" + e.getMessage());
         } catch (IOException e) {
             Logger.error("Reading csv datafile failed: \n" + e.getMessage());
+        } catch (FileSystemNotFoundException e){
+            Logger.error("CSV file not found: \n", e.getMessage());
         }
 
         return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body("Reading and inserting data from file failed");
