@@ -1,6 +1,7 @@
 # MaintenanceTaskREST
 A prerequisite task that implements an API for device maintenance tasks
 
+
 Technical requirements:
 
 MySQL server (Can also run other relational database solutions but have to figure out the Java connector dependency yourself)
@@ -8,6 +9,7 @@ MySQL server (Can also run other relational database solutions but have to figur
 Maven
 
 Java SDK 17
+
 
 1: Clone the repository and navigate to src\main\resources and open application.properties
 
@@ -26,6 +28,7 @@ java -jar target/etteplan-prerequisite-1.0-SNAPSHOT.jar org.prerequisitetask.Mai
 ```
 5: Server should now be running on localhost port 8080. Make a post request to localhost:8080/devices/populate to read the mock data into the DB. 
 The API is now ready to be used.
+
 
 Refer to the Swagger docs below for usage information:
 
