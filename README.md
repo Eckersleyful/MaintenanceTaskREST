@@ -14,6 +14,7 @@ Java SDK 17
 1: Clone the repository and navigate to src\main\resources and open application.properties
 
 2: Change spring.datasource.url to where ever your MySQL is running on
+
 Note that xyz:port/SCHEMA the SCHEMA has to point whatever schema already exists in the DB. The API does not create
 one dynamically.
 
