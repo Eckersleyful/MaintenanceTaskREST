@@ -4,7 +4,9 @@ A prerequisite task that implements an API for device maintenance tasks
 Technical requirements:
 
 MySQL server (Can also run other relational database solutions but have to figure out the Java connector dependency yourself)
+
 Maven
+
 Java SDK 17
 
 1: Clone the repository and navigate to src\main\resources and open application.properties
