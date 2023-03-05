@@ -29,7 +29,7 @@ mvn package
 java -jar target/etteplan-prerequisite-1.0-SNAPSHOT.jar org.prerequisitetask.MaintenanceEtteplan 
 
 ```
-5: Server should now be running on localhost port 8080. If the port 8080 is taken, add server.port = e.g 8081 to the application.properties file.
+5: Server should now be running on localhost port 8080. If the port 8080 is taken, add server.port = 8081 or whichever to the application.properties file.
 
 Make a post request to localhost:8080/devices/populate to read the mock data into the DB. 
 
