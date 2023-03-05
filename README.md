@@ -18,7 +18,7 @@ Java SDK 17
 3: Change spring.datasource.username and -.password to your own. Make sure the user
 has create and write permissions. Currently just generic admin/admin.
 
-4: Navigate to project root and in terminal of your choice run:
+4: Navigate to the project root and in a terminal of your choice run:
 
 ```
 mvn package
