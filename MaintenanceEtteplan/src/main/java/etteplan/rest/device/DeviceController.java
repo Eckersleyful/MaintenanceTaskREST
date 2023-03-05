@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.tinylog.Logger;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -46,17 +49,21 @@ public class DeviceController {
         Logger.info("Trying to read device data CSV");
 
         try {
-            Path path = Paths.get(resource.toURI());
 
-            Stream<String> fileStream = Files.lines(path, StandardCharsets.UTF_8).skip(1);
+            InputStream in = getClass().getResourceAsStream("/data/devicedata.csv");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
-            fileStream.forEach(line -> {
+            //Skip the header
+            reader.readLine();
+
+            String line;
+
+            while((line = reader.readLine()) != null){
 
                 String[] splitLine = line.split(",");
 
-                //Note that return doesn't end method call but skips iteration due to stream
                 if(splitLine.length != CSV_LINE_ELEMENTS){
-                    return;
+                    continue;
                 }
 
                 String deviceName = splitLine[0], deviceType = splitLine[2];
@@ -64,13 +71,11 @@ public class DeviceController {
 
                 Device device = new Device(deviceName, deviceYear, deviceType);
                 service.save(device);
-            });
+            }
 
             Logger.info("Data read from file to db succesfully");
             return ResponseEntity.status(HttpStatus.OK).body("Data read from file to db succesfully");
 
-        } catch (URISyntaxException e) {
-            Logger.error("Opening csv datafile failed: \n" + e.getMessage());
         } catch (IOException e) {
             Logger.error("Reading csv datafile failed: \n" + e.getMessage());
         } catch (FileSystemNotFoundException e){
