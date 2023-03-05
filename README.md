@@ -15,10 +15,13 @@ Java SDK 17
 
 2: Change spring.datasource.url to where ever your MySQL is running on
 
+Note that xyz:port/SCHEMA the SCHEMA has to point whatever schema already exists in the DB. The API does not create
+one dynamically.
+
 3: Change spring.datasource.username and -.password to your own. Make sure the user
 has create and write permissions. Currently just generic admin/admin.
 
-4: Navigate to the project root and in a terminal of your choice run:
+4: Navigate to the project root where the Maven pom.xml resides and in a terminal of your choice run:
 
 ```
 mvn package
