@@ -1,5 +1,5 @@
 # MaintenanceTaskREST
-A prerequisite task that implements an API for device maintenance tasks
+A prerequisite task that implements an REST API for device maintenance tasks
 
 
 Technical requirements:
